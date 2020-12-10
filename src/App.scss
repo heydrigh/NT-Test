@@ -1,3 +1,14 @@
+@keyframes appearFromSides {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+};
+
 .App {
   display: flex;
   justify-content: center;
@@ -7,8 +18,6 @@
   width: 100vw;
   background-color: #F6F6F6;
 
-
-}
 
 .Wrapper {
   display: flex;
@@ -21,6 +30,9 @@
   border-radius: 4px;
   box-shadow: 0px 2px 2px #00000033;
   flex-direction: column;
+
+  animation: appearFromSides 1s;
+
   svg {
     vertical-align: middle;
   }
@@ -83,6 +95,7 @@
       }
     }
 
+
     .typesContainer {
       display: flex;
       flex-direction: row;
@@ -100,7 +113,8 @@
         border-radius: 4px;
         text-align: center;
 
-        button{
+        a{
+          display: flex;
           border: 0;
           background-color: #fff;
           width: 368px;
@@ -109,15 +123,65 @@
           font: normal normal bold 14px/19px Open Sans;
           letter-spacing: 0.22px;
           color: #828282;
+          text-decoration: none;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
-        button:hover{
+        a:hover{
           background-color: #FFD95A;
         }
       }
     }
   }
+  .contractWrapper {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+
+    .contractHeader {
+      display: flex;
+      font: normal normal bold 14px/19px Open Sans;
+      letter-spacing: 0.22px;
+      color: #828282;
+      margin-bottom: 16px;
+      svg {
+        margin-right: 16px;
+      }
+    }
+  }
+
   .cardBody {
     height: 205px;
+    border-bottom: 1px solid #dadada;
+    h4 {
+      text-align: left;
+      font: normal normal bold 14px/19px Open Sans;
+      letter-spacing: 0.22px;
+      color: #828282;
+      padding-bottom: 19px;
+    }
+
+    .smartContracts {
+      height: 135px;
+      display: flex;
+      border-top: 1px solid #dadada;
+      span {
+        text-align: left;
+        font: normal normal normal 14px/19px Open Sans;
+        letter-spacing: 0.22px;
+        color: #828282;
+        margin-top: 16px;
+      }
+
+      .affiliateForm {
+        display: inline-flex;
+      }
+    }
+  }
+
+  .cardContractBody {
+    height: 265px;
     border-bottom: 1px solid #dadada;
     h4 {
       text-align: left;
@@ -150,7 +214,6 @@
     height: 54px;
     justify-content: space-between;
 
-    padding-top: 24px;
     .backButton {
       display: flex;
       height: 40px;
@@ -159,14 +222,19 @@
       align-items: center;
       padding: 8px 16px 10px;
       text-align: center;
-      font: normal normal bold 16px/22px Open Sans;
-      letter-spacing: 0.26px;
-      color: #4C4C4C;
+      button {
+        font: normal normal bold 16px/22px Open Sans;
+        letter-spacing: 0.26px;
+        color: #4C4C4C;
+        border: 0;
+        background-color: #fff;
+      }
+
     }
 
     .saveAndSubmit {
 
-      #saveButton{
+      .saveButton{
         background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 0px 2px 2px #00000033;
         border: 2px solid #FFD95A;
@@ -177,8 +245,52 @@
         font: normal normal bold 14px/19px Open Sans;
         letter-spacing: 0.22px;
         color: #4C4C4C;
+        margin-top: 10px;
       }
-      #skipButton{
+      .skipButton{
+        background: #FFD95A 0% 0% no-repeat padding-box;
+        box-shadow: 0px 2px 2px #00000033;
+        border: 2px solid #FFD95A;
+        border-radius: 4px;
+        height: 40px;
+        width: 164px;
+        margin-left: 24px;
+        button{
+          margin-top: 20px;
+          text-align: center;
+          font: normal normal bold 16px/22px Open Sans;
+          letter-spacing: 0.26px;
+          color: #4C4C4C;
+        }
+      }
+    }
+  }
+
+  .cardContractFooter {
+    display: flex;
+    height: 54px;
+    justify-content: space-between;
+
+    .backButton {
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      padding: 8px 16px 10px;
+      text-align: center;
+      a {
+        font: normal normal bold 16px/22px Open Sans;
+        letter-spacing: 0.26px;
+        color: #4C4C4C;
+        border: 0;
+        background-color: #fff;
+      }
+
+    }
+
+    .saveAndSubmit {
+      .addToApp{
         background: #FFD95A 0% 0% no-repeat padding-box;
         box-shadow: 0px 2px 2px #00000033;
         border: 2px solid #FFD95A;
@@ -190,7 +302,9 @@
         font: normal normal bold 16px/22px Open Sans;
         letter-spacing: 0.26px;
         color: #4C4C4C;
-      }
+        margin-top: 10px;
+       }
+     }
     }
   }
 }

@@ -1,11 +1,14 @@
 import React from 'react';
-import MainCard from '../src/components/MainCard';
+import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
+import Routes from './routes';
 
 function App() {
   return (
     <div className="App">
-      <MainCard />
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </div>
   );
 }
