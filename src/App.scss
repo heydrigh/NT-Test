@@ -205,6 +205,28 @@
 
       .affiliateForm {
         display: inline-flex;
+
+        input {
+          width: 114px;
+          height: 40px;
+          background: #FFFFFF 0% 0% no-repeat padding-box;
+          border: 1px solid #ADADAD;
+          border-radius: 4px;
+                  }
+
+        select {
+          width: 442px;
+          height: 40px;
+          background: none;
+          border: 1px solid #CCCCCC;
+          border-radius: 4px;
+          color: #828282;
+
+          option:disabled {
+            display: none;
+          }
+
+        }
       }
     }
   }
@@ -290,7 +312,7 @@
     }
 
     .saveAndSubmit {
-      .addToApp{
+      button{
         background: #FFD95A 0% 0% no-repeat padding-box;
         box-shadow: 0px 2px 2px #00000033;
         border: 2px solid #FFD95A;
@@ -303,6 +325,14 @@
         letter-spacing: 0.26px;
         color: #4C4C4C;
         margin-top: 10px;
+
+        animation: background-color 3s;
+
+        &:disabled {
+          border: grey;
+          background: #EFEFEF 0% 0% no-repeat padding-box;
+          color: #ADADAD;
+        }
        }
      }
     }

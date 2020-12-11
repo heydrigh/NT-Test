@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useToasts } from 'react-toast-notifications';
 import { AiFillWarning } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 function Buyers() {
   const users = ['Dio Brando', 'Jonathan Joestar', 'Erina Pandleton'];
+  const { addToast } = useToasts();
+  const [enable, setEnable] = useState(true);
+
+  const handleChange = () => {
+    setEnable(false);
+  };
+
+  const handleClick = () => {
+    addToast('Success! [template name] saved and applied successfully', {
+      appearance: 'success'
+    });
+  };
   return (
     <div className="Wrapper">
       <div className="BuyCard">
@@ -41,7 +54,10 @@ function Buyers() {
             <form action="" className="affiliateForm">
               <span>
                 <label htmlFor="users">Agent / Affiliate Name</label>
-                <select id="users">
+                <select onChange={handleChange} id="users">
+                  <option value="" disabled selected>
+                    Search for an Agent / Affiliate
+                  </option>
                   {users.map((user) => (
                     <option
                       key={user}
@@ -71,7 +87,13 @@ function Buyers() {
             <Link to={'/'}>Cancel</Link>
           </div>
           <div className="saveAndSubmit">
-            <button className="addToApp">Add to Application</button>
+            <button
+              disabled={enable}
+              onClick={handleClick}
+              className="addToApp"
+            >
+              Add to Application
+            </button>
           </div>
         </div>
       </div>
