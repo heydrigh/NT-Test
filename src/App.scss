@@ -167,6 +167,7 @@
       display: flex;
       border-top: 1px solid #dadada;
       flex-direction: column;
+      overflow-y: auto;
       span {
         text-align: left;
         font: normal normal normal 14px/19px Open Sans;
@@ -189,6 +190,11 @@
 
         &:hover{
           background-color: #FEF9E2;
+        }
+
+        button {
+          border: 0;
+          background: none;
         }
       }
 

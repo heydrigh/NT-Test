@@ -17,7 +17,13 @@ function Profit() {
   const handleClick = () => {
     const addContract = () => {
       const firstUser = users[1];
-      setProfitContract([...profitContract, firstUser]);
+      setProfitContract([
+        ...profitContract,
+        {
+          id: profitContract.length + 1,
+          name: firstUser
+        }
+      ]);
     };
     addContract();
     console.log(profitContract);

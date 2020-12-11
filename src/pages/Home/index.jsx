@@ -9,7 +9,19 @@ function MainCard() {
   const { buyerContract, setBuyerContract } = useContext(ContractContext);
   const { profitContract, setProfitContract } = useContext(ContractContext);
 
-  const handleDelete = () => {};
+  const handleBuyersDelete = (contractId) => {
+    const updatedBuyersContract = buyerContract.filter(
+      (contract) => contract.id !== contractId
+    );
+    setBuyerContract(updatedBuyersContract);
+  };
+
+  const handleProfitDelete = (contractId) => {
+    const updatedProfitContract = profitContract.filter(
+      (contract) => contract.id !== contractId
+    );
+    setProfitContract(updatedProfitContract);
+  };
 
   return (
     <div className="Wrapper">
@@ -45,20 +57,28 @@ function MainCard() {
             {(buyerContract.length > 0) | (profitContract.length > 0) ? (
               <div>
                 {buyerContract.map((contract) => (
-                  <div className="contract" key={contract.index}>
-                    <p>Buy Rate Contract#1</p>
+                  <div className="contract" key={contract.id}>
+                    <p>Buy Rate Contract #{contract.id}</p>
                     <div className="contractButtons">
-                      <BsPencil size={16} color={'#828282'} />
-                      <BsTrash size={16} color={'#828282'} />
+                      <button>
+                        <BsPencil size={16} color={'#828282'} />
+                      </button>
+                      <button onClick={() => handleBuyersDelete(contract.id)}>
+                        <BsTrash size={16} color={'#828282'} />
+                      </button>
                     </div>
                   </div>
                 ))}
-                {profitContract.map((contract, index) => (
-                  <div className="contract" key={contract.index}>
-                    <p>Profit Split Contract# {index + 1}</p>
-                    <div>
-                      <BsPencil size={16} color={'#828282'} />
-                      <BsTrash size={16} color={'#828282'} />
+                {profitContract.map((contract) => (
+                  <div className="contract" key={contract.id}>
+                    <p>Profit Split Contract# {contract.id}</p>
+                    <div className="contractButtons">
+                      <button>
+                        <BsPencil size={16} color={'#828282'} />
+                      </button>
+                      <button onClick={() => handleProfitDelete(contract.id)}>
+                        <BsTrash size={16} color={'#828282'} />
+                      </button>
                     </div>
                   </div>
                 ))}

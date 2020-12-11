@@ -17,10 +17,15 @@ function Buyers() {
   const handleClick = () => {
     const addContract = () => {
       const firstUser = users[0];
-      setBuyerContract([...buyerContract, firstUser]);
+      setBuyerContract([
+        ...buyerContract,
+        {
+          id: buyerContract.length + 1,
+          name: firstUser
+        }
+      ]);
     };
 
-    console.log(buyerContract);
     addContract();
     addToast('Success! [template name] saved and applied successfully', {
       appearance: 'success'
