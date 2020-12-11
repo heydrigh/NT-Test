@@ -166,12 +166,30 @@
       height: 135px;
       display: flex;
       border-top: 1px solid #dadada;
+      flex-direction: column;
       span {
         text-align: left;
         font: normal normal normal 14px/19px Open Sans;
         letter-spacing: 0.22px;
         color: #828282;
         margin-top: 16px;
+      }
+      .contract {
+        display: flex;
+        width: 100%;
+        height: 48px;
+        justify-content: space-between;
+        text-align: left;
+        font: normal normal normal 14px/19px Open Sans;
+        letter-spacing: 0.22px;
+        color: #828282;
+        border-top: 1px solid #EFEFEF;
+        align-items: center;
+        transition: background-color 0.4s;
+
+        &:hover{
+          background-color: #FEF9E2;
+        }
       }
 
       .affiliateForm {
@@ -205,15 +223,7 @@
 
       .affiliateForm {
         display: inline-flex;
-
-        input {
-          width: 114px;
-          height: 40px;
-          background: #FFFFFF 0% 0% no-repeat padding-box;
-          border: 1px solid #ADADAD;
-          border-radius: 4px;
-                  }
-
+        justify-content: space-evenly;
         select {
           width: 442px;
           height: 40px;
@@ -227,6 +237,41 @@
           }
 
         }
+        .feesContainer{
+          display: flex;
+          justify-content: space-evenly;
+          width: 300px;
+          .feeField{
+            display: flex;
+            height: 40px;
+            input {
+              width: 144px;
+              height: 40px;
+              background: #FFFFFF 0% 0% no-repeat padding-box;
+              border: 1px solid #ADADAD;
+              border-radius: 4px;
+              text-align: end;
+            }
+            :first-child{
+              margin-right: 30px;
+            }
+
+            .simbolField{
+              display: flex;
+              margin-top: 5px;
+              margin-left: 4px;
+              width: 32px;
+              height: 32px;
+              background: #EFEFEF 0% 0% no-repeat padding-box;
+              border-radius: 4px;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+              position: absolute;
+            }
+          }
+        }
+
       }
     }
   }

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useToasts } from 'react-toast-notifications';
+import { ContractContext } from '../../context/contracts/Contracts';
 import { AiFillWarning } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
@@ -7,12 +8,20 @@ function Buyers() {
   const users = ['Dio Brando', 'Jonathan Joestar', 'Erina Pandleton'];
   const { addToast } = useToasts();
   const [enable, setEnable] = useState(true);
+  const { buyerContract, setBuyerContract } = useContext(ContractContext);
 
   const handleChange = () => {
     setEnable(false);
   };
 
   const handleClick = () => {
+    const addContract = () => {
+      const firstUser = users[0];
+      setBuyerContract([...buyerContract, firstUser]);
+    };
+
+    console.log(buyerContract);
+    addContract();
     addToast('Success! [template name] saved and applied successfully', {
       appearance: 'success'
     });
@@ -70,15 +79,27 @@ function Buyers() {
                 </select>
               </span>
 
-              <span>
-                <label>Processing Fee</label>
-                <input type="text" placeholder="0.00" />
-              </span>
+              <div className="feesContainer">
+                <span>
+                  <label>Processing Fee</label>
+                  <div className="feeField">
+                    <div className="simbolField">%</div>
+                    <div>
+                      <input type="text" placeholder="0.00" />
+                    </div>
+                  </div>
+                </span>
 
-              <span>
-                <label>Transaction Fee</label>
-                <input type="text" placeholder="0.00" />
-              </span>
+                <span>
+                  <label>Transaction Fee</label>
+                  <div className="feeField">
+                    <div className="simbolField">$</div>
+                    <div>
+                      <input type="text" placeholder="0.00" />
+                    </div>
+                  </div>
+                </span>
+              </div>
             </form>
           </div>
         </div>
